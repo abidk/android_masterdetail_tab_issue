@@ -1,8 +1,8 @@
 package com.example.example.masterdetail_tabs;
 
 import android.app.Activity;
+import android.app.ListFragment;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -138,6 +138,7 @@ public class ItemListFragment extends ListFragment {
         ? ListView.CHOICE_MODE_SINGLE
         : ListView.CHOICE_MODE_NONE);
   }
+
 
   private void setActivatedPosition(int position) {
     if (position == ListView.INVALID_POSITION) {

@@ -18,16 +18,15 @@
     this two-pane version.
 
     For more on layout aliases, see:
-    http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
-    -->
+	http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
+	-->
 
-    <fragment
+
+    <FrameLayout
         android:id="@+id/item_list"
-        android:name="com.example.example.masterdetail_tabs.ItemListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:layout="@android:layout/list_content" />
+        android:layout_weight="1" />
 
     <FrameLayout
         android:id="@+id/item_detail_container"

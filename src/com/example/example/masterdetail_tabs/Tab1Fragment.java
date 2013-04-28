@@ -14,7 +14,11 @@ public class Tab1Fragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
+
     View rootView = inflater.inflate(R.layout.activity_tab1_list, container, false);
+
+    getFragmentManager().beginTransaction()
+        .replace(R.id.item_list, new ItemListFragment()).commit();
     return rootView;
   }
 }

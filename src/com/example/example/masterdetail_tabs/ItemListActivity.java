@@ -12,20 +12,10 @@ import android.support.v4.app.FragmentActivity;
 public class ItemListActivity extends FragmentActivity
     implements ItemListFragment.Callbacks {
 
-  private boolean mTwoPane;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-    // THIS IS ALWAYS NULL. Why?
-    if (findViewById(R.id.item_detail_container) != null) {
-      mTwoPane = true;
-
-      ((ItemListFragment) getSupportFragmentManager()
-          .findFragmentById(R.id.item_list))
-          .setActivateOnItemClick(true);
-    }
 
     ActionBar actionBar = getActionBar();
     actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -43,6 +33,7 @@ public class ItemListActivity extends FragmentActivity
 
   @Override
   public void onItemSelected(String id) {
+    boolean mTwoPane = findViewById(R.id.item_detail_container) != null;
     if (mTwoPane) {
       Bundle arguments = new Bundle();
       arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
@@ -75,6 +66,7 @@ public class ItemListActivity extends FragmentActivity
       if (mFragment == null) {
         mFragment = Fragment.instantiate(mActivity, mClass.getName());
         ft.add(android.R.id.content, mFragment, mTag);
+
       } else {
         ft.attach(mFragment);
       }
